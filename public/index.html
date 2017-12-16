@@ -1,0 +1,133 @@
+<!------------------------------------------------------------------------------
+ ! Copyright (c) 2012-2015 Zachary L. Stauber
+ !
+ ! Permission is hereby granted, free of charge, to any person obtaining a
+ ! copy of this software and associated documentation files (the "Software"),
+ ! to deal in the Software without restriction, including without limitation
+ ! the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ ! and/or sell copies of the Software, and to permit persons to whom the
+ ! Software is furnished to do so, subject to the following conditions:
+ !
+ ! The above copyright notice and this permission notice shall be included
+ ! in all copies or substantial portions of the Software.
+ !
+ ! THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ ! OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ ! FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ ! AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ ! LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ ! FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ ! DEALINGS IN THE SOFTWARE.
+ ------------------------------------------------------------------------------>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Spacewar</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/main.css" />
+		<script>
+			(function(w, d, undefined) {
+				var script = d.createElement('script');
+				script.setAttribute('data-main', 'js/main');
+				script.src = 'http://requirejs.org/docs/release/2.1.18/minified/require.js';
+				script.async = true;
+				d.getElementsByTagName('head')[0].appendChild(script);
+			} (window, window.document));
+		</script>
+	</head>
+	<body>
+		<!--tabindex is purely there to make the div selectable.  Without it-->
+		<!--a div cannot capture a keydown event, only the entire document.-->
+		<div id="divGame" tabindex="1" class="game">
+			<canvas id="cnvCanvas"></canvas>
+			<div id="divStart">
+				<table id="tabStart">
+					<tr>
+						<td class="start" colspan="2">
+							<span id="spnTitle">
+								SPACEWAR
+							</span>
+						</td>
+					</tr>
+					<tr id="trOptions">
+						<td id="tdOptions" class="start">
+							<table id="tabOptions">
+								<tr>
+									<td>F1<br>Toggle<br>Planet</td>
+									<td>F2<br>Toggle<br>Gravity</td>
+									<td style="display: none">A<br>Place<br>Holder</td>
+								</tr>
+								<tr>
+									<td style="display: none">A<br>Place<br>Holder</td>
+									<td style="display: none">A<br>Place<br>Holder</td>
+									<td style="display: none">A<br>Place<br>Holder</td>
+								</tr>
+								<tr>
+									<td style="display: none">A<br>Place<br>Holder</td>
+									<td style="display: none">A<br>Place<br>Holder</td>
+									<td style="display: none">A<br>Place<br>Holder</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr id="trControls">
+						<td id="tdControls" class="start">
+							<table id="tabControls">
+								<tr>
+									<td>Q<br>Fire<br>Slug</td>
+									<td>W<br><br>Cloak</td>
+									<td>E<br>Fire<br>Torpedo</td>
+								</tr>
+								<tr>
+									<td>A<br>Rotate<br>CCW</td>
+									<td>S<br>Engine<br>Thrust</td>
+									<td>D<br>Rotate<br>CW</td>
+								</tr>
+								<tr>
+									<td>Z<br>Weapon<br>Energy</td>
+									<td>X<br>Hyper<br>Space</td>
+									<td>C<br>Shield<br>Energy</td>
+								</tr>
+							</table>
+						</td>
+						<td id="tdInfo" class="start">
+							<span id="spnInfo"></span>
+						</td>
+					</tr>
+					<tr>
+						<td id="tdStatus" class="start" colspan="2">
+							<span id="spnStatus" class="start"></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="divDebug" class="debug">
+				<p><span>Socket ID: </span><span id="spnSocketId"></span></p>
+				<table>
+					<tr>
+						<th></th>
+						<th class="label">Expected</th>
+						<th class="label">Actual</th>
+					</tr>
+					<tr>
+						<td class="label">FPS</td>
+						<td><span id="spnFpsExpected"></span></td>
+						<td><span id="spnFpsActual"></span></td>
+					</tr>
+					<tr>
+						<td class="label">UPS</td>
+						<td><span id="spnUpsExpected"></span></td>
+						<td><span id="spnUpsActual"></span></td>
+					</tr>
+					<tr>
+						<td class="label">CPS</td>
+						<td><span id="spnCpsExpected"></span></td>
+						<td><span id="spnCpsActual"></span></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

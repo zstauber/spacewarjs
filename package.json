@@ -1,0 +1,11 @@
+{
+	"name": "spacewarjs",
+	"license": "MIT",
+	"version": "0.0.1",
+	"description": "Spacewar multiplayer game",
+	"dependencies": {
+		"socket.io": "~1.3.6",
+		"mime": "~1.3.4",
+		"requirejs": "~2.1.20"
+	}
+}
